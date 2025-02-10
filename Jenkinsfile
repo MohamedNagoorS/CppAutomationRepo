@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                bat 'git clone https://github.com/MohamedNagoorS/CppAutomationRepo.git'
-            }
+             checkout scm            
+            }    
         }
         stage('Build') {
             steps {
