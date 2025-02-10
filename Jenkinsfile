@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "C:\\MinGW\\bin;C:\\Program Files\\Git\\bin;C:\\Windows\\System32"
+        PATH = "C:\\MinGW\\bin;C:\\Program Files\\Git\\bin;C:\\Windows\\System32;C:\Program Files (x86)\GnuWin32\bin;"
     }
     stages {
         stage('Clone Repository') {
