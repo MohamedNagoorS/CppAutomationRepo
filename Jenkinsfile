@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-             bat 'checkout scm'            
+             checkout scm            
             }    
         }
         stage('Build') {
