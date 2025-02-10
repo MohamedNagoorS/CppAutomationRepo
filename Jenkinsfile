@@ -1,25 +1,27 @@
 pipeline {
     agent any
+    environment {
+        PATH = "C:\\MinGW\\bin;C:\\Program Files\\Git\\bin;C:\\Windows\\System32"
+    }
     stages {
         stage('Clone Repository') {
             steps {
-             checkout scm            
+                checkout scm
             }    
         }
         stage('Build') {
             steps {
-                bat 'set PATH=%PATH%'
+                bat 'g++ --version'  // Check if g++ is available
                 bat 'make'
             }
         }
         stage('Execute') {
             steps {
-                bat './hello'
+                bat '.\\hello.exe'   // Correct way to run a Windows executable
             }
         }
         stage('Cleanup') {
             steps {
-                bat 'set PATH=;%PATH%'
                 bat 'make clean'
             }
         }
