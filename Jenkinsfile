@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-             checkout scm            
+             bat 'checkout scm'            
             }    
         }
         stage('Build') {
             steps {
+                bat 'set PATH=%PATH%'
                 bat 'make'
             }
         }
@@ -18,6 +19,7 @@ pipeline {
         }
         stage('Cleanup') {
             steps {
+                bat 'set PATH=;%PATH%'
                 bat 'make clean'
             }
         }
